@@ -1,5 +1,6 @@
 package fr.natsuco.nakcityplugin.commands;
 
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -7,7 +8,18 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import fr.natsuco.nakcityplugin.main;
+
 public class CommandTest implements CommandExecutor {
+	
+	main plugin;
+
+    public CommandTest(main plugin) {
+        this.plugin = plugin;
+    }
+	
+	
+	
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String msg, String[] args) {
@@ -48,9 +60,28 @@ public class CommandTest implements CommandExecutor {
 				}
 				
 				
+				if (plugin.invisible_list.contains(player)){
+	                for (Player people : Bukkit.getOnlinePlayers()){
+	                    people.showPlayer(plugin, player);
+	                }
+	                plugin.invisible_list.remove(player);
+	                player.sendMessage("Vous etes visible par les autres joueurs !");
+	            }else if(!plugin.invisible_list.contains(player)){
+	                for (Player people : Bukkit.getOnlinePlayers()){
+	                    people.hidePlayer(plugin, player);
+	                }
+	                plugin.invisible_list.add(player);
+	                player.sendMessage("Vous etes maintenant invisble");
+	            }
+	        }
+
+	        return true;
+
+			
+		    }
 		}
-		return false;
-	}
-}
+
+				
+
 
 

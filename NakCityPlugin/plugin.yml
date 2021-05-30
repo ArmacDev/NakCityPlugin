@@ -12,3 +12,6 @@ commands:
   pseudo:
     description: Changer votre pseudo
     permission: perm.use
+  vanish:
+    description: masquez de tous le server
+    permission: perm.use
