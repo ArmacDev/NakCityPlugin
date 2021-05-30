@@ -1,0 +1,14 @@
+name: NakCityPlugin
+version: 1.0
+author: Natsuco
+main: fr.natsuco.nakcityplugin.main
+commands:
+  mairie:
+    description: TP a la mairie
+    permission: perm.use
+  alert:
+    description: Ceci est un broadcast custom
+    permission: bc.use
+  pseudo:
+    description: Changer votre pseudo
+    permission: perm.use
